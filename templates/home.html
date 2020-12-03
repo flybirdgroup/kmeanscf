@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			大数据变小数据
+		</div>
+		<h2>客户价值挖掘应用</h2>
+		
+	</div>
+	</header>
+
+	<div class="ml-container">
+
+		<form action="{{ url_for('predict')}}" method="POST">
+		<p>请在此输入你的客户ID</p>
+		<!-- <input type="text" name="comment"/> -->
+		<textarea name="message" rows="4" cols="50">HK000000580H</textarea>
+		<br/>
+
+		<input type="submit" class="btn-info" value="推荐">
+	</form>
+		
+	</div>
+	<form action="{{ url_for('training')}}" method="POST">
+		<h3>更新参数,重新训练模型</h3>
+		<!-- <input type="text" name="comment"/> -->
+		<textarea name="parameters" rows="1" cols="30">K_value = 3, max_iter_eps = 500
+		</textarea>
+		<br/>
+		<input type="submit" class="btn-info" value="训练">
+	</form>
+
+</body>
+</html>

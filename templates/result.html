@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			基于KMeans聚类的协同过滤推荐算法应用
+		</div>
+		<h2>大数据变小数据组</h2>
+
+
+		
+	</div>
+	</header>
+	<p style="color:blue;font-size:20;text-align: left;"><b>人工智能推荐系统</b></p>
+	<div class="results">
+	<h2><font color="#ff1493">推荐相似产品</font></h2>
+	<table border="1">
+  <tr>
+    <th><font color="#8a2be2">相似客户({{ prediction["top_similarity"] }})购买的产品ID</font></th>
+    <th><font color="#8a2be2">频次</font></th>
+  </tr>
+ 	{% for pd,od in prediction["items"] %}
+	<tr>
+    <td>{{ pd }}</td>
+    <td>{{ od }}</td>
+  	</tr>
+	{% endfor %}
+	</table>
+
+	</div>
+
+	<p><h2>小组成员:<font color="green"> 林晓雯 李京华 罗振 李伟 招晓贤</font></h2></p>
+</body>
+</html>
